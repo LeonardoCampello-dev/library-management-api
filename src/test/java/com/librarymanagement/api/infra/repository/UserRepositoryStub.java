@@ -1,7 +1,7 @@
 package com.librarymanagement.api.infra.repository;
 
 import com.librarymanagement.api.domain.entities.User;
-import com.librarymanagement.api.domain.repository.UserRepository;
+import com.librarymanagement.api.domain.repositories.UserRepository;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;

@@ -1,10 +1,10 @@
 package com.librarymanagement.api.application.usecase.library;
 
 import com.librarymanagement.api.domain.entities.Library;
-import com.librarymanagement.api.domain.repository.LibraryRepository;
-import com.librarymanagement.api.domain.repository.UserRepository;
+import com.librarymanagement.api.domain.exceptions.UserNotFoundException;
+import com.librarymanagement.api.domain.repositories.LibraryRepository;
+import com.librarymanagement.api.domain.repositories.UserRepository;
 import com.librarymanagement.api.ui.controller.dto.CreateLibraryRequestDTO;
-import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class CreateLibraryUseCase {
@@ -25,10 +25,13 @@ public class CreateLibraryUseCase {
     var user = userRepo.findById(dto.userId());
 
     if (user == null) {
-      throw new RuntimeException("user not found");
+      throw new UserNotFoundException();
     }
 
-    Library library = new Library(dto.libraryName(), user);
+    Library library = new Library(
+        dto.libraryName(),
+        user
+    );
 
     return libraryRepo.save(library);
   }

@@ -1,4 +1,4 @@
-package com.librarymanagement.api.domain.repository;
+package com.librarymanagement.api.domain.repositories;
 
 import com.librarymanagement.api.domain.entities.Library;
 import org.springframework.stereotype.Repository;

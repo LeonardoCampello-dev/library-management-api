@@ -1,7 +1,7 @@
 package com.librarymanagement.api.infra.repository;
 
 import com.librarymanagement.api.domain.entities.Library;
-import com.librarymanagement.api.domain.repository.LibraryRepository;
+import com.librarymanagement.api.domain.repositories.LibraryRepository;
 
 public class LibraryRepositoryStub implements LibraryRepository {
 
