@@ -21,4 +21,9 @@ public class UserRepositoryStub implements UserRepository {
   public User findById(UUID id) {
     return users.get(id);
   }
+
+  @Override
+  public User save(User user) {
+    return user;
+  }
 }
