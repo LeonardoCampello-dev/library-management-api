@@ -5,10 +5,12 @@ import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@ToString
 public class User {
 
   private UUID id;
@@ -19,5 +21,15 @@ public class User {
   private String lastName;
   private LocalDateTime registrationDate;
 
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 }
