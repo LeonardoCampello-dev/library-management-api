@@ -26,4 +26,9 @@ public class UserRepositoryStub implements UserRepository {
   public User save(User user) {
     return user;
   }
+
+  @Override
+  public Boolean existsByUsername(String username) {
+    return false;
+  }
 }

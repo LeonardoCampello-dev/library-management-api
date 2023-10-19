@@ -4,12 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.github.javafaker.Faker;
-import com.librarymanagement.api.application.usecase.library.CreateLibraryUseCase;
+import com.librarymanagement.api.application.service.user.UsernameValidationService;
 import com.librarymanagement.api.domain.entities.User;
 import com.librarymanagement.api.domain.exceptions.UserNotFoundException;
-import com.librarymanagement.api.infra.repository.LibraryRepositoryStub;
 import com.librarymanagement.api.infra.repository.UserRepositoryStub;
-import com.librarymanagement.api.ui.controller.dto.CreateLibraryRequestDTO;
 import com.librarymanagement.api.ui.controller.dto.UpdateUserRequestDTO;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -37,7 +35,10 @@ public class UpdateUserUseCaseTest {
         LocalDateTime.now()
     ));
 
-    UpdateUserUseCase useCase = new UpdateUserUseCase(userRepo);
+    UpdateUserUseCase useCase = new UpdateUserUseCase(
+        userRepo,
+        new UsernameValidationService(userRepo)
+    );
 
     var newUsername = faker.name().username();
 
@@ -56,8 +57,11 @@ public class UpdateUserUseCaseTest {
   @Test
   @DisplayName("should throw an exception when the user is not found")
   public void testUserNotFound() {
+    var userRepo = new UserRepositoryStub();
+
     UpdateUserUseCase useCase = new UpdateUserUseCase(
-        new UserRepositoryStub()
+        userRepo,
+        new UsernameValidationService(userRepo)
     );
 
     UpdateUserRequestDTO dto = new UpdateUserRequestDTO(

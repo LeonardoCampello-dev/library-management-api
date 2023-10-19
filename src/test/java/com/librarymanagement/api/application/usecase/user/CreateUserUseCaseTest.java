@@ -3,6 +3,7 @@ package com.librarymanagement.api.application.usecase.user;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.javafaker.Faker;
+import com.librarymanagement.api.application.service.user.UsernameValidationService;
 import com.librarymanagement.api.infra.repository.UserRepositoryStub;
 import com.librarymanagement.api.ui.controller.dto.CreateUserRequestDTO;
 import org.junit.jupiter.api.DisplayName;
@@ -28,7 +29,12 @@ public class CreateUserUseCaseTest {
         true
     );
 
-    CreateUserUseCase useCase = new CreateUserUseCase(new UserRepositoryStub());
+    var userRepo = new UserRepositoryStub();
+
+    CreateUserUseCase useCase = new CreateUserUseCase(
+        userRepo,
+        new UsernameValidationService(userRepo)
+    );
 
     CreateUserRequestDTO dto = new CreateUserRequestDTO(
         username,

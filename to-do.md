@@ -1,0 +1,1 @@
+ - [ ] Implementar mock para UsernameValidationService nos testes unitários

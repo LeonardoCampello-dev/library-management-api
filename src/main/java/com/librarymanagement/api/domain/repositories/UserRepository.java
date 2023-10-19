@@ -10,4 +10,6 @@ public interface UserRepository {
   User findById(UUID id);
 
   User save(User user);
+
+  Boolean existsByUsername(String username);
 }
