@@ -1,4 +1,4 @@
-package com.librarymanagement.api.ui.controller.dto;
+package com.librarymanagement.api.ui.controller.dto.user;
 
 import jakarta.validation.constraints.NotBlank;
 import java.util.UUID;

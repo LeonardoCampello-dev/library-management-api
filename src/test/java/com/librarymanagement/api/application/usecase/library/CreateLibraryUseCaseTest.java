@@ -9,7 +9,7 @@ import com.librarymanagement.api.domain.entities.User;
 import com.librarymanagement.api.domain.exceptions.UserNotFoundException;
 import com.librarymanagement.api.infra.repository.LibraryRepositoryStub;
 import com.librarymanagement.api.infra.repository.UserRepositoryStub;
-import com.librarymanagement.api.ui.controller.dto.CreateLibraryRequestDTO;
+import com.librarymanagement.api.ui.controller.dto.library.CreateLibraryRequestDTO;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;

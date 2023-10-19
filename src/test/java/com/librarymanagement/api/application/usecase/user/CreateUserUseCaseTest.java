@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.github.javafaker.Faker;
 import com.librarymanagement.api.application.service.user.UsernameValidationService;
 import com.librarymanagement.api.infra.repository.UserRepositoryStub;
-import com.librarymanagement.api.ui.controller.dto.CreateUserRequestDTO;
+import com.librarymanagement.api.ui.controller.dto.user.CreateUserRequestDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

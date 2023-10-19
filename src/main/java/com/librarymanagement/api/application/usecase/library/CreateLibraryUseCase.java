@@ -4,7 +4,7 @@ import com.librarymanagement.api.domain.entities.Library;
 import com.librarymanagement.api.domain.exceptions.UserNotFoundException;
 import com.librarymanagement.api.domain.repositories.LibraryRepository;
 import com.librarymanagement.api.domain.repositories.UserRepository;
-import com.librarymanagement.api.ui.controller.dto.CreateLibraryRequestDTO;
+import com.librarymanagement.api.ui.controller.dto.library.CreateLibraryRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class CreateLibraryUseCase {
