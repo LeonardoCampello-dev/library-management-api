@@ -3,6 +3,7 @@ package com.librarymanagement.api.application.service.user;
 import com.librarymanagement.api.domain.entities.User;
 import com.librarymanagement.api.domain.exceptions.UsernameAlreadyExistsException;
 import com.librarymanagement.api.domain.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,6 +11,7 @@ public class UsernameValidationService {
 
   private final UserRepository userRepo;
 
+  @Autowired
   public UsernameValidationService(UserRepository userRepo) {
     this.userRepo = userRepo;
   }
