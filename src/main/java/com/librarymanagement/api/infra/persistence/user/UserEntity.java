@@ -6,26 +6,28 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+import lombok.NoArgsConstructor;
 
 @Entity(name = "User")
-@Table(name = "user")
+@Table(name = "users")
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
-  @Column
+  @Column(nullable = false)
   private String username;
-  @Column
+  @Column(nullable = false, unique = true)
   private String email;
-  @Column
+  @Column(nullable = false)
   private String password;
-  @Column
+  @Column(nullable = false)
   private String firstName;
-  @Column
+  @Column(nullable = false)
   private String lastName;
-  @Column
+  @Column()
   private LocalDateTime registrationDate;
 }
