@@ -1,4 +1,4 @@
-package com.librarymanagement.api.infra.persistence.user;
+package com.librarymanagement.api.infra.jpa.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserEntity {
+public class JpaUserEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;

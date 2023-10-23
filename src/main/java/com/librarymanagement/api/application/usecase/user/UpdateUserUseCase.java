@@ -5,7 +5,9 @@ import com.librarymanagement.api.domain.entities.User;
 import com.librarymanagement.api.domain.exceptions.UserNotFoundException;
 import com.librarymanagement.api.domain.repositories.UserRepository;
 import com.librarymanagement.api.ui.controller.dto.user.UpdateUserRequestDTO;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UpdateUserUseCase {
 
   private final UserRepository userRepo;

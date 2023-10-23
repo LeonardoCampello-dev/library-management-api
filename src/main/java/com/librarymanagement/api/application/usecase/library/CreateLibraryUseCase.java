@@ -6,7 +6,9 @@ import com.librarymanagement.api.domain.repositories.LibraryRepository;
 import com.librarymanagement.api.domain.repositories.UserRepository;
 import com.librarymanagement.api.ui.controller.dto.library.CreateLibraryRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CreateLibraryUseCase {
 
   private final LibraryRepository libraryRepo;
