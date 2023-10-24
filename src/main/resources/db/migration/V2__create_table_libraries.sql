@@ -1,0 +1,8 @@
+CREATE TABLE libraries (
+  id UUID NOT NULL,
+   name VARCHAR(255) NOT NULL,
+   user_id UUID,
+   CONSTRAINT pk_libraries PRIMARY KEY (id)
+);
+
+ALTER TABLE libraries ADD CONSTRAINT FK_LIBRARIES_ON_USER FOREIGN KEY (user_id) REFERENCES users (id);

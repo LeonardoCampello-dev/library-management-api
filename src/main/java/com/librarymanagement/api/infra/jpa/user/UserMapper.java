@@ -1,6 +1,7 @@
 package com.librarymanagement.api.infra.jpa.user;
 
 import com.librarymanagement.api.domain.entities.User;
+import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -26,7 +27,9 @@ public class UserMapper {
         domain.getPassword(),
         domain.getFirstName(),
         domain.getLastName(),
-        domain.getRegistrationDate()
+        domain.getRegistrationDate(),
+        // TODO temporário
+        new ArrayList<>()
     );
   }
 }

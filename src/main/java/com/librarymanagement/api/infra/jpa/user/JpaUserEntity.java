@@ -1,6 +1,8 @@
 package com.librarymanagement.api.infra.jpa.user;
 
+import com.librarymanagement.api.infra.jpa.library.JpaLibraryEntity;
 import jakarta.persistence.*;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -15,6 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JpaUserEntity {
+
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
@@ -30,4 +33,6 @@ public class JpaUserEntity {
   private String lastName;
   @Column()
   private LocalDateTime registrationDate;
+  @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  private List<JpaLibraryEntity> libraries;
 }
