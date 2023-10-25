@@ -28,7 +28,6 @@ public class CreateUserUseCase {
   }
 
   public User execute(CreateUserRequestDTO dto) {
-
     var user = new User(
         null,
         dto.username(),
@@ -42,7 +41,5 @@ public class CreateUserUseCase {
     usernameValidationService.validate(user);
 
     return userRepo.save(user);
-
-
   }
 }

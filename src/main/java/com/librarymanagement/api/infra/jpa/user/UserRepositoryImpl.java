@@ -18,11 +18,7 @@ public class UserRepositoryImpl implements UserRepository {
   public User findById(UUID id) {
     var result = jpaUserRepository.findById(id);
 
-    if (result.isPresent()) {
-      return userMapper.toDomain(result.get());
-    } else {
-      return null;
-    }
+    return result.map(jpaUserEntity -> userMapper.toDomain(jpaUserEntity)).orElse(null);
   }
 
   @Override

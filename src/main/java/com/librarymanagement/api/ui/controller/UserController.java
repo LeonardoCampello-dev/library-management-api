@@ -6,11 +6,13 @@ import com.librarymanagement.api.application.usecase.user.UpdateUserUseCase;
 import com.librarymanagement.api.ui.controller.dto.user.CreateUserRequestDTO;
 import com.librarymanagement.api.ui.controller.dto.user.UpdateUserRequestDTO;
 import com.librarymanagement.api.ui.controller.dto.user.UserResponseDTO;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,6 +47,7 @@ public class UserController {
   }
 
   @PostMapping
+  @Transactional
   public ResponseEntity<UserResponseDTO> createUser(
       @RequestBody
       @Valid
@@ -58,11 +61,18 @@ public class UserController {
     return ResponseEntity.created(location).body(new UserResponseDTO(createdUser));
   }
 
+  @Transactional
+  @PatchMapping("/{id}")
   public ResponseEntity<UserResponseDTO> updateUser(
       @RequestBody @Valid
-      UpdateUserRequestDTO body
+      UpdateUserRequestDTO body,
+      @PathVariable UUID id
+
   ) {
-    var updatedUser = updateUserUseCase.execute(body);
+    var updatedUser = updateUserUseCase.execute(
+        body,
+        id
+    );
 
     return ResponseEntity.ok().body(new UserResponseDTO(updatedUser));
   }

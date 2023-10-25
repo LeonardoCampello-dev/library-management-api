@@ -5,6 +5,7 @@ import com.librarymanagement.api.domain.entities.User;
 import com.librarymanagement.api.domain.exceptions.UserNotFoundException;
 import com.librarymanagement.api.domain.repositories.UserRepository;
 import com.librarymanagement.api.ui.controller.dto.user.UpdateUserRequestDTO;
+import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,8 +23,11 @@ public class UpdateUserUseCase {
     this.usernameValidationService = usernameValidationService;
   }
 
-  public User execute(UpdateUserRequestDTO dto) {
-    User user = userRepo.findById(dto.userId());
+  public User execute(
+      UpdateUserRequestDTO dto,
+      UUID userId
+  ) {
+    User user = userRepo.findById(userId);
 
     if (user == null) {
       throw new UserNotFoundException();
