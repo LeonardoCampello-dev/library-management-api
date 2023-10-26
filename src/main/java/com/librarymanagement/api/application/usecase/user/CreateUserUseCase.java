@@ -15,16 +15,17 @@ public class CreateUserUseCase {
 
   private final UserRepository userRepo;
   private final UsernameValidationService usernameValidationService;
-  @Autowired
-  private PasswordService passwordService;
+  private final PasswordService passwordService;
 
   @Autowired
   public CreateUserUseCase(
       UserRepository userRepo,
-      UsernameValidationService usernameValidationService
+      UsernameValidationService usernameValidationService,
+      PasswordService passwordService
   ) {
     this.userRepo = userRepo;
     this.usernameValidationService = usernameValidationService;
+    this.passwordService = passwordService;
   }
 
   public User execute(CreateUserRequestDTO dto) {

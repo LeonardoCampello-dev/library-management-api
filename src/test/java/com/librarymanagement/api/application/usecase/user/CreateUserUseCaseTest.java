@@ -3,12 +3,18 @@ package com.librarymanagement.api.application.usecase.user;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.javafaker.Faker;
+import com.librarymanagement.api.application.service.user.PasswordService;
 import com.librarymanagement.api.application.service.user.UsernameValidationService;
 import com.librarymanagement.api.infra.repository.UserRepositoryStub;
 import com.librarymanagement.api.ui.controller.dto.user.CreateUserRequestDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+@ExtendWith(MockitoExtension.class)
 public class CreateUserUseCaseTest {
 
   @Test
@@ -31,9 +37,18 @@ public class CreateUserUseCaseTest {
 
     var userRepo = new UserRepositoryStub();
 
+    PasswordService passwordService = Mockito.mock(PasswordService.class);
+
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    var passwordHash = encoder.encode(password);
+
+    Mockito.when(passwordService.encode(Mockito.anyString())).thenReturn(passwordHash);
+
     CreateUserUseCase useCase = new CreateUserUseCase(
         userRepo,
-        new UsernameValidationService(userRepo)
+        new UsernameValidationService(userRepo),
+        passwordService
     );
 
     CreateUserRequestDTO dto = new CreateUserRequestDTO(
@@ -47,7 +62,7 @@ public class CreateUserUseCaseTest {
     var user = useCase.execute(dto);
 
     assertThat(user.getEmail()).isEqualTo(email);
-    assertThat(user.getPassword()).isEqualTo(password);
+    assertThat(user.getPassword()).isEqualTo(passwordHash);
     assertThat(user.getUsername()).isEqualTo(username);
     assertThat(user.getFirstName()).isEqualTo(firstName);
     assertThat(user.getLastName()).isEqualTo(lastName);

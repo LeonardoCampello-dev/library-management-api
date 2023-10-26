@@ -43,13 +43,12 @@ public class UpdateUserUseCaseTest {
     var newUsername = faker.name().username();
 
     UpdateUserRequestDTO dto = new UpdateUserRequestDTO(
-        userId,
         faker.name().firstName(),
         faker.name().lastName(),
         newUsername
     );
 
-    var updatedUser = useCase.execute(dto);
+    var updatedUser = useCase.execute(dto, userId);
 
     assertThat(updatedUser.getUsername()).isEqualTo(newUsername);
   }
@@ -65,7 +64,6 @@ public class UpdateUserUseCaseTest {
     );
 
     UpdateUserRequestDTO dto = new UpdateUserRequestDTO(
-        UUID.randomUUID(),
         null,
         null,
         null
@@ -73,7 +71,7 @@ public class UpdateUserUseCaseTest {
 
     assertThrows(
         UserNotFoundException.class,
-        () -> useCase.execute(dto)
+        () -> useCase.execute(dto, UUID.randomUUID())
     );
   }
 }
