@@ -17,5 +17,5 @@ public class Book {
   private String author;
   private String publisher;
   private Category category;
-  private ReadingStatus readingStatus;
+  private ReadingStatus readingStatus = ReadingStatus.UNREAD;
 }
