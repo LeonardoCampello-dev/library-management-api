@@ -1,16 +1,13 @@
 package com.librarymanagement.api.application.usecase.book;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import com.github.javafaker.Faker;
 import com.librarymanagement.api.domain.enums.Category;
 import com.librarymanagement.api.domain.enums.ReadingStatus;
 import com.librarymanagement.api.infra.repository.BookRepositoryStub;
 import com.librarymanagement.api.ui.controller.dto.book.CreateBookRequestDTO;
-import java.text.SimpleDateFormat;
 import java.time.Year;
-import java.time.temporal.ChronoField;
 import java.util.Random;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,7 +19,6 @@ class BookCreateUseCaseTest {
   public void testCreate() {
     Faker faker = new Faker();
     Random random = new Random();
-
 
     BookCreateUseCase useCase = new BookCreateUseCase(new BookRepositoryStub());
 
