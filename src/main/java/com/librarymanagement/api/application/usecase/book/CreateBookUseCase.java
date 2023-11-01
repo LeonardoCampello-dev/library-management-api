@@ -4,11 +4,11 @@ import com.librarymanagement.api.domain.entities.Book;
 import com.librarymanagement.api.domain.repositories.BookRepository;
 import com.librarymanagement.api.ui.controller.dto.book.CreateBookRequestDTO;
 
-public class BookCreateUseCase {
+public class CreateBookUseCase {
 
   private final BookRepository bookRepo;
 
-  public BookCreateUseCase(BookRepository bookRepo) {
+  public CreateBookUseCase(BookRepository bookRepo) {
     this.bookRepo = bookRepo;
   }
 
@@ -18,6 +18,7 @@ public class BookCreateUseCase {
         dto.title(),
         dto.author(),
         dto.publisher(),
+        dto.publicationYear(),
         dto.category(),
         dto.readingStatus()
     );

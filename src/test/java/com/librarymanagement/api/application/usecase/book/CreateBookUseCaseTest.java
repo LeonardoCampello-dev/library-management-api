@@ -12,7 +12,7 @@ import java.util.Random;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class BookCreateUseCaseTest {
+class CreateBookUseCaseTest {
 
   @Test
   @DisplayName("should be able to create book")
@@ -20,7 +20,7 @@ class BookCreateUseCaseTest {
     Faker faker = new Faker();
     Random random = new Random();
 
-    BookCreateUseCase useCase = new BookCreateUseCase(new BookRepositoryStub());
+    CreateBookUseCase useCase = new CreateBookUseCase(new BookRepositoryStub());
 
     var title = faker.lorem().word();
     var author = faker.name().fullName();
@@ -49,6 +49,7 @@ class BookCreateUseCaseTest {
     assertThat(book.getTitle()).isEqualTo(title);
     assertThat(book.getAuthor()).isEqualTo(author);
     assertThat(book.getPublisher()).isEqualTo(publisher);
+    assertThat(book.getPublicationYear()).isEqualTo(randomYear);
     assertThat(book.getCategory()).isEqualTo(randomCategory);
     assertThat(book.getReadingStatus()).isEqualTo(randomReadingStatus);
   }
