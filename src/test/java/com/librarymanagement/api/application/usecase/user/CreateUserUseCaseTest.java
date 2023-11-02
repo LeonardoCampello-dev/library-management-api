@@ -3,8 +3,8 @@ package com.librarymanagement.api.application.usecase.user;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.javafaker.Faker;
-import com.librarymanagement.api.application.service.user.PasswordService;
-import com.librarymanagement.api.application.service.user.UsernameValidationService;
+import com.librarymanagement.api.domain.services.user.PasswordService;
+import com.librarymanagement.api.domain.services.user.UsernameValidationService;
 import com.librarymanagement.api.infra.repository.UserRepositoryStub;
 import com.librarymanagement.api.ui.controller.dto.user.CreateUserRequestDTO;
 import org.junit.jupiter.api.DisplayName;

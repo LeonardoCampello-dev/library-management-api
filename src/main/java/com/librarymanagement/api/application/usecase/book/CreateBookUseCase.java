@@ -3,7 +3,9 @@ package com.librarymanagement.api.application.usecase.book;
 import com.librarymanagement.api.domain.entities.Book;
 import com.librarymanagement.api.domain.repositories.BookRepository;
 import com.librarymanagement.api.ui.controller.dto.book.CreateBookRequestDTO;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CreateBookUseCase {
 
   private final BookRepository bookRepo;

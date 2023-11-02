@@ -28,7 +28,7 @@ public class UserMapper {
         domain.getFirstName(),
         domain.getLastName(),
         domain.getRegistrationDate(),
-        // TODO temporário
+        // TODO tmp
         new ArrayList<>()
     );
   }

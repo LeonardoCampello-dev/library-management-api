@@ -1,6 +1,6 @@
 package com.librarymanagement.api.application.usecase.user;
 
-import com.librarymanagement.api.application.service.user.UsernameValidationService;
+import com.librarymanagement.api.domain.services.user.UsernameValidationService;
 import com.librarymanagement.api.domain.entities.User;
 import com.librarymanagement.api.domain.exceptions.UserNotFoundException;
 import com.librarymanagement.api.domain.repositories.UserRepository;

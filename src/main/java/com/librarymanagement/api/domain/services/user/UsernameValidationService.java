@@ -1,4 +1,4 @@
-package com.librarymanagement.api.application.service.user;
+package com.librarymanagement.api.domain.services.user;
 
 import com.librarymanagement.api.domain.entities.User;
 import com.librarymanagement.api.domain.exceptions.UsernameAlreadyExistsException;

@@ -6,7 +6,9 @@ import com.librarymanagement.api.domain.repositories.BookRepository;
 import com.librarymanagement.api.ui.controller.dto.book.UpdateBookRequestDTO;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UpdateBookUseCase {
 
   private final BookRepository bookRepo;

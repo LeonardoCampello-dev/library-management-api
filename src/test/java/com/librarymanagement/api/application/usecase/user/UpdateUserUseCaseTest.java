@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.github.javafaker.Faker;
-import com.librarymanagement.api.application.service.user.UsernameValidationService;
+import com.librarymanagement.api.domain.services.user.UsernameValidationService;
 import com.librarymanagement.api.domain.entities.User;
 import com.librarymanagement.api.domain.exceptions.UserNotFoundException;
 import com.librarymanagement.api.infra.repository.UserRepositoryStub;
